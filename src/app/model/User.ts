@@ -11,6 +11,8 @@ export class User {
 
 	profissao: Profissao = new Profissao();
 
+	salario: DoubleRange;
+
 	telefones: Array<Telefone>;
 
 }
