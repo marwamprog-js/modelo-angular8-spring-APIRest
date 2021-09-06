@@ -78,4 +78,12 @@ export class UsuarioComponent implements OnInit {
 
   }
 
+
+  /**
+   * Método para imprimir RELATORIO EM PDF
+   */
+  imprimeRelatorio() {
+    return this.usuarioService.downloadPdfRelatorio();
+  }
+
 }

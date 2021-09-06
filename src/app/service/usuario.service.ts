@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppConstants } from '../app-constants';
 import { Observable } from 'rxjs';
+import { UserReport } from '../model/UserReport';
 
 @Injectable({
   providedIn: 'root'
@@ -79,6 +80,31 @@ export class UsuarioService {
     }
   }
 
+  /**
+   * Download do PDF
+   */
+  downloadPdfRelatorio() {
+    return this.http.get(AppConstants.baseUrl + 'relatorio', {responseType: 'text'}).subscribe(data => {
+      document.querySelector('iframe').src = data;
+    });
+  }
+
+   /**
+   * Download do PDF com Parametros
+   */
+  downloadPdfRelatorioParam(userReport: UserReport) {
+    return this.http.post(AppConstants.baseUrl + 'relatorio/', userReport, {responseType: 'text'}).subscribe(data => {
+      document.querySelector('iframe').src = data;
+    });
+  }
+
+
+  /**
+   * GRAFICO
+   */
+  carregarGrafico() : Observable<any> {
+    return this.http.get(AppConstants.baseUrl + 'grafico');
+  }
 
 
 }

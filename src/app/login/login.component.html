@@ -23,5 +23,6 @@
     </div>
   </div>
 
-  <button type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-primary" (click)="login()"  >Acessar</button>
+  <button type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-primary" (click)="login()">Acessar</button>
+  <button type="button" style="margin-left: 10px;" [disabled]="email.invalid" class="btn btn-success" (click)="recuperar()">Recuperar Acesso</button>
 </form>

@@ -13,11 +13,19 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginServiceService, private router: Router) { }
 
-
+  /**
+   * LOGIN
+   */
   public login() {
     this.loginService.login(this.usuario);
   }
 
+  /**
+   * RECUPERAR SENHA LOGIN
+   */
+  public recuperar() {
+    this.loginService.recuperar(this.usuario.login);
+  }
 
   ngOnInit() {
     if (localStorage.getItem('token') !== null &&
