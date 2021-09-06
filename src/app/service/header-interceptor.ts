@@ -40,7 +40,12 @@ export class HeaderInterceptorService implements HttpInterceptor {
       console.error(error.error);
       errorMessage = 'Error: ' + error.error.error;
     } else {
-      errorMessage = 'Código: ' + error.error.code + '\nMensagem: ' + error.error.error;
+      console.log('-------------------------------');
+      if(error.status == 403){
+        errorMessage = "Acesso negado: Faça o login novamente";        errorMessage = "Acesso negado: Faça o login novamente";
+      } else {
+        errorMessage = 'Código: ' + error.error.code + '\nMensagem: ' + error.error.error;
+      }
     }
     window.alert(errorMessage)
     return throwError(errorMessage);
